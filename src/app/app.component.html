@@ -1,32 +1,51 @@
 <app-header>
-    <!-- List items with avatar and action -->
-    <div class="demo-list-action mdl-list">
-        <div class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-                <img class="material-icons mdl-list__item-avatar" [src]=users[0].avatar>
-                <span>{{users[0].username}}</span>
-            </span>
-            <span [ngClass]="{'hide': fav}">Favoritado!</span>
-            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons"
-                    (click)="favoritar()">star</i></a>
-        </div>
-        <div class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-                <img class="material-icons mdl-list__item-avatar" [src]=users[1].avatar>
-                <span>{{users[1].username}}</span>
-            </span>
-            <span [ngClass]="{'hide': fav}">Favoritado!</span>
-            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons"
-                    (click)="favoritar()">star</i></a>
-        </div>
-        <div class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-                <img class="material-icons mdl-list__item-avatar" [src]=users[2].avatar>
-                <span>{{users[2].username}}</span>
-            </span>
-            <span [ngClass]="{'hide': fav}">Favoritado!</span>
-            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons"
-                    (click)="favoritar()">star</i></a>
-        </div>
+    <!-- Pesquisar Input-->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="sample3" (change)="pesquisar($event)">
+        <label class="mdl-textfield__label" for="sample3">Pesquisar...</label>
     </div>
+    <!-- List items with avatar and action -->
+    <ul class="demo-list-action mdl-list">
+        <li class="mdl-list__item" *ngFor="let user of users; let i = index">
+            <span class="mdl-list__item-primary-content">
+                <img class="material-icons mdl-list__item-avatar" [src]=user.avatar>
+                <span>{{i}}: {{user.username}}</span>
+            </span>
+            <span [ngClass]="{'hide': fav}">Favoritado!</span>
+            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons"
+                    (click)="favoritar()">star</i></a>
+        </li>
+    </ul>
+    <div class="dado">
+        <button (click)="rolarD20()">D20</button>
+        <span>{{valorDado}}</span>
+    </div>
+
+    <!-- Formulário-->
+    <form class="form">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="nome">Nome...</label>
+            <input (input)="getValues($event.target.value, nome)" class="mdl-textfield__input" type="text" name="nome">
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="raca">Raça:</label>
+            <input (input)="getValues($event.target.value, raca)" class="mdl-textfield__input" type="text" name="raca">
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="classe">Classe:</label>
+            <input (input)="getValues($event.target.value, classe)" class="mdl-textfield__input" type="text" name="classe">
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="nivel">Nível:</label>
+            <input (input)="getValues($event.target.value, nivel)" class="mdl-textfield__input" type="number" name="nivel">
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="telefone">Telefone:</label>
+            <input (input)="getValues($event.target.value, telefone)" class="mdl-textfield__input" type="text" name="telefone">
+        </div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="printCadastro($event)">
+            Salvar
+        </button>
+    </form>
+
 </app-header>

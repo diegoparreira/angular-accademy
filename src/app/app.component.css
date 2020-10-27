@@ -5,3 +5,17 @@
 .hide{
     display: none;
 }
+
+.dado{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
