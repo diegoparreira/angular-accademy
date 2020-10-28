@@ -91,8 +91,17 @@ export class AppComponent {
     this.cadastro[campo] = value;
   }
 
-  printCadastro(event) {
+  salvar(event) {
     event.preventDefault();
     console.log(this.cadastro);
+    this.classes.push({
+      avatar: '',
+      classe: this.cadastro.classe,
+      descricao: this.cadastro.nome,
+    });
+  }
+
+  excluir() {
+    this.classes.pop();
   }
 }

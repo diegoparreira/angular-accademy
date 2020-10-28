@@ -16,6 +16,9 @@
                 (click)="favoritar(i)" [ngClass]="{violet: classe.fav}">star</i></a>
         </li>
     </ul>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="excluir()">
+        Excluir último
+    </button>
     <div class="dado">
         <button (click)="rolarD20()">D20</button>
         <span>{{valorDado}}</span>
@@ -25,25 +28,25 @@
     <form class="form">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="nome">Nome...</label>
-            <input (input)="getValues($event.target.value, nome)" class="mdl-textfield__input" type="text" name="nome">
+            <input (input)="getValues($event.target.value, 'nome')" class="mdl-textfield__input" type="text" name="nome">
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="raca">Raça:</label>
-            <input (input)="getValues($event.target.value, raca)" class="mdl-textfield__input" type="text" name="raca">
+            <input (input)="getValues($event.target.value, 'raca')" class="mdl-textfield__input" type="text" name="raca">
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="classe">Classe:</label>
-            <input (input)="getValues($event.target.value, classe)" class="mdl-textfield__input" type="text" name="classe">
+            <input (input)="getValues($event.target.value, 'classe')" class="mdl-textfield__input" type="text" name="classe">
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="nivel">Nível:</label>
-            <input (input)="getValues($event.target.value, nivel)" class="mdl-textfield__input" type="number" name="nivel">
+            <input (input)="getValues($event.target.value, 'nivel')" class="mdl-textfield__input" type="number" name="nivel">
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="telefone">Telefone:</label>
-            <input (input)="getValues($event.target.value, telefone)" class="mdl-textfield__input" type="text" name="telefone">
+            <input (input)="getValues($event.target.value, 'telefone')" class="mdl-textfield__input" type="text" name="telefone">
         </div>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="printCadastro($event)">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="salvar($event)">
             Salvar
         </button>
     </form>
